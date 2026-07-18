@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#20262d">
+  <title>ArchaeoPlan v0.1.0</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <h1>ArchaeoPlan</h1>
+        <span class="version">v0.1.0</span>
+      </div>
+      <div class="header-actions">
+        <button id="openButton" class="primary">Åbn model</button>
+        <input id="fileInput" type="file" multiple
+          accept=".glb,.gltf,.obj,.mtl,.ply,.jpg,.jpeg,.png,.webp" hidden>
+        <button id="exportButton">Gem PNG</button>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <section>
+        <h2>Visning</h2>
+        <div class="button-grid two">
+          <button id="perspectiveButton" class="active">Perspektiv</button>
+          <button id="orthographicButton">Ortografisk</button>
+        </div>
+        <div class="button-grid three compact">
+          <button data-view="top">Top</button>
+          <button data-view="front">Front</button>
+          <button data-view="right">Højre</button>
+          <button data-view="bottom">Bund</button>
+          <button data-view="back">Bag</button>
+          <button data-view="left">Venstre</button>
+        </div>
+        <label class="check-row">
+          <input id="gridToggle" type="checkbox" checked>
+          Vis gitter
+        </label>
+      </section>
+
+      <section>
+        <h2>Modeller</h2>
+        <div id="modelList" class="model-list">
+          <p class="muted">Ingen modeller åbnet.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Valgt model</h2>
+        <div class="field-grid three">
+          <label>X<input id="posX" type="number" step="0.01"></label>
+          <label>Y<input id="posY" type="number" step="0.01"></label>
+          <label>Z<input id="posZ" type="number" step="0.01"></label>
+        </div>
+        <div class="field-grid three">
+          <label>Rot. X°<input id="rotX" type="number" step="0.1"></label>
+          <label>Rot. Y°<input id="rotY" type="number" step="0.1"></label>
+          <label>Rot. Z°<input id="rotZ" type="number" step="0.1"></label>
+        </div>
+        <div class="button-grid three compact">
+          <button id="translateButton" class="active">Flyt</button>
+          <button id="rotateButton">Drej</button>
+          <button id="lockButton">Lås</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>PNG-eksport</h2>
+        <div class="field-grid two">
+          <label>Bredde<input id="exportWidth" type="number" value="3000" min="200" max="10000"></label>
+          <label>Højde<input id="exportHeight" type="number" value="2000" min="200" max="10000"></label>
+        </div>
+        <p class="muted small">Eksporten følger den aktuelle kameravinkel og synlige modeller.</p>
+      </section>
+
+      <section class="about">
+        <h2>Dokumentationsvisning</h2>
+        <p>Teksturer vises uden scenelys og tone mapping. Programmet ændrer ikke de originale billedfiler.</p>
+      </section>
+    </aside>
+
+    <main id="viewport">
+      <div id="dropZone">
+        <strong>Slip model her</strong>
+        <span>GLB, GLTF, OBJ + MTL + teksturer eller PLY</span>
+      </div>
+      <div id="status">Klar.</div>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
