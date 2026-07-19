@@ -1,4 +1,4 @@
-# ArchaeoPlan v0.1.0
+# ArchaeoPlan v0.1.1
 
 Første GitHub Pages-version af ArchaeoPlan.
 
