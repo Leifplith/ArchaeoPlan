@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#20262d">
-  <title>ArchaeoPlan v0.1.1</title>
+  <title>ArchaeoPlan v0.1.2</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,12 +12,12 @@
     <header class="topbar">
       <div>
         <h1>ArchaeoPlan</h1>
-        <span class="version">v0.1.1</span>
+        <span class="version">v0.1.2</span>
       </div>
       <div class="header-actions">
-        <button id="openButton" class="primary">Åbn model</button>
-        <input id="fileInput" type="file" multiple
-          accept=".glb,.gltf,.obj,.mtl,.ply,.jpg,.jpeg,.png,.webp" hidden>
+        <button id="newProjectButton">Nyt projekt</button>
+        <button id="addFileButton" class="primary">Tilføj fil</button>
+        <input id="fileInput" type="file" multiple hidden>
         <button id="exportButton">Gem PNG</button>
       </div>
     </header>
@@ -86,7 +86,7 @@
 
     <main id="viewport">
       <div id="dropZone">
-        <strong>Slip model her</strong>
+        <strong>Slip filer her</strong>
         <span>GLB, GLTF, OBJ + MTL + teksturer eller PLY</span>
       </div>
       <div id="status">Klar.</div>

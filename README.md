@@ -1,4 +1,4 @@
-# ArchaeoPlan v0.1.1
+# ArchaeoPlan v0.1.2
 
 Første GitHub Pages-version af ArchaeoPlan.
 
@@ -39,3 +39,14 @@ Modellerne indlæses lokalt i browseren og sendes ikke til GitHub eller andre se
 
 Denne version bruger Three.js fra jsDelivr og kræver derfor internetforbindelse ved opstart.
 Beskæring, profilklip og projektgemning kommer i senere versioner.
+
+
+## Nyt i v0.1.2
+
+- Ny knap: **Nyt projekt**
+- Ny knap: **Tilføj fil**
+- Filvælgeren accepterer nu GLB på iPad uden at gråtone filen
+- Bedre bevarelse af originale GLB- og OBJ-teksturer
+- GLTF kan indlæses sammen med separate BIN- og teksturfiler
+- OBJ kan indlæses sammen med MTL- og teksturfiler
+- Filvælgeren nulstilles efter import, så samme fil kan vælges igen
