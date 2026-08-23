@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#20262d">
-  <title>ArchaeoPlan v0.1.2</title>
+  <title>ArchaeoPlan v0.2.0</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <header class="topbar">
       <div>
         <h1>ArchaeoPlan</h1>
-        <span class="version">v0.1.2</span>
+        <span class="version">v0.2.0</span>
       </div>
       <div class="header-actions">
         <button id="newProjectButton">Nyt projekt</button>
@@ -70,6 +70,20 @@
       </section>
 
       <section>
+        <h2>Beskæring</h2>
+        <p class="muted small">Tegn en polygon på skærmen. Beskæringen laves som en ny kopi, så originalen bevares.</p>
+        <div class="button-grid two">
+          <button id="startCropButton">Tegn beskæring</button>
+          <button id="cancelCropButton" disabled>Annullér</button>
+        </div>
+        <div class="button-grid two">
+          <button id="cropInsideButton" disabled>Behold indenfor</button>
+          <button id="cropOutsideButton" disabled>Behold udenfor</button>
+        </div>
+        <p class="muted small">Første udgave beskærer ved trekantgrænser. På tætte fotogrammetri-mesh giver det normalt en fin kant.</p>
+      </section>
+
+      <section>
         <h2>PNG-eksport</h2>
         <div class="field-grid two">
           <label>Bredde<input id="exportWidth" type="number" value="3000" min="200" max="10000"></label>
@@ -80,11 +94,17 @@
 
       <section class="about">
         <h2>Dokumentationsvisning</h2>
-        <p>Teksturer vises uden scenelys og tone mapping. Programmet ændrer ikke de originale billedfiler.</p>
+        <p>GLB- og OBJ-teksturer bevares. Programmet ændrer ikke de originale teksturfiler. Materialerne vises uden tone mapping og uden kunstigt scenelys.</p>
       </section>
     </aside>
 
     <main id="viewport">
+      <svg id="cropOverlay" aria-hidden="true">
+        <polyline id="cropLine"></polyline>
+        <polygon id="cropPolygon"></polygon>
+        <g id="cropPoints"></g>
+      </svg>
+      <div id="cropHint">Tryk langs kanten. Tryk første punkt igen eller vælg “Behold …” når polygonen er færdig.</div>
       <div id="dropZone">
         <strong>Slip filer her</strong>
         <span>GLB, GLTF, OBJ + MTL + teksturer eller PLY</span>
